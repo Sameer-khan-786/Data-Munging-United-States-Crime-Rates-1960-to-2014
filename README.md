@@ -1,1 +1,4 @@
 # Data-Munging-United-States-Crime-Rates-1960-to-2014
+# Issues
+
+Some issues: In Step 8 of the crime rate question, the 'Population' is also summed, which is not so meaningful. Step 9 only takes violent crime into account while ignoring all other types of crimes. Instead, you could do something like (Population will not be considered): def sumOfRows(row): a = row[0] b = row[1] c = row[2] d = row[3] e = row[4] f = row[5] g = row[6] h = row[7] i = row[8] return (a + b + c + d + e + f + g + h + i) crimeYearByDecade['TotalCrimes'] = crimeYearByDecade.apply(sumOfRows, axis = 1) For the drinks question, North America (NA) was treated as NaN and was thus dropped. You could take a look at keep_default_na and na_values parameters in the read_csv function (https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html).
